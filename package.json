@@ -1,8 +1,8 @@
 {
-  "name": "dapigate-sdk-nestjs",
+  "name": "@elsikora/dapigate-sdk-nestjs",
   "version": "1.0",
   "description": "NestJS SDK for DApiGate",
-  "author": "OpenAPI Generator Contributors",
+  "author": "ElsiKora",
   "repository": {
     "type": "git",
     "url": "git@github.com:ElsiKora/DApiGate-SDK-NestJS.git"
