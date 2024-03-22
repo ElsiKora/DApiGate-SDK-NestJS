@@ -9,17 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RateGetResponseDTO } from './rate-get-response-dto.model';
 
 
-export interface RateGetSimpleListResponseDTO {
-	/**
-	 * Array of RateGetResponseDTO
-	 */
-	items?: Set<RateGetResponseDTO>;
-	/**
-	 * RateGetResponseDTO Total number of items
-	 */
-	totalCount?: number;
+export interface RateGetResponseDTO {
+    /**
+     * Rate currency
+     */
+    currency?: string;
+    /**
+     * Rate value
+     */
+    rate?: number;
 }
 
