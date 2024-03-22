@@ -1,6 +1,6 @@
 {
   "name": "dapigate-sdk-nestjs",
-  "version": "1.0",
+  "version": null,
   "description": "NestJS SDK for DApiGate",
   "author": "OpenAPI Generator Contributors",
   "repository": {
