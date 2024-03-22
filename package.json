@@ -1,6 +1,6 @@
 {
   "name": "@elsikora/dapigate-sdk-nestjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NestJS SDK for DApiGate",
   "author": "ElsiKora",
   "repository": {
