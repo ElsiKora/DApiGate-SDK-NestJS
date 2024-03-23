@@ -1,5 +1,11 @@
 # dapigate-sdk-nestjs
 
+## 1.1.0
+
+### Minor Changes
+
+- 12846d6: Add IP address related details and enhance code readability
+
 ## 1.0.1
 
 ### Patch Changes
