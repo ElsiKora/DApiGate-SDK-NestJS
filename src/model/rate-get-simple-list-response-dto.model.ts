@@ -9,8 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RateGetResponseDTO } from './rate-get-response-dto.model';
-
+import type { RateGetResponseDTO } from "./rate-get-response-dto.model";
 
 export interface RateGetSimpleListResponseDTO {
 	/**
@@ -22,4 +21,3 @@ export interface RateGetSimpleListResponseDTO {
 	 */
 	totalCount?: number;
 }
-

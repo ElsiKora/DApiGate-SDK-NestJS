@@ -10,13 +10,17 @@
  * Do not edit the class manually.
  */
 
-export interface RateGetResponseDTO {
+export interface IpGetResponseDTO {
 	/**
-	 * Rate currency
+	 * IP country code
+	 */
+	country?: null | string;
+	/**
+	 * IP currency
 	 */
 	currency?: string;
 	/**
-	 * Rate value
+	 * IP address
 	 */
-	rate?: number;
+	ip?: string;
 }
