@@ -1,13 +1,17 @@
-import { lastValueFrom } from 'rxjs';
 import { HttpService } from "@nestjs/axios";
 import { Injectable, Optional } from "@nestjs/common";
+import { lastValueFrom } from "rxjs";
+
 import { Configuration } from "../configuration";
+
 import type { PhoneGetResponseDTO } from "../model/phone-get-response-dto.model";
 
 @Injectable()
 export class PhoneService {
 	protected basePath = "https://reaper.dapigate.com";
+
 	public configuration = new Configuration();
+
 	public defaultHeaders: Record<string, string> = {};
 
 	/**
@@ -24,18 +28,26 @@ export class PhoneService {
 		this.basePath = configuration?.basePath || this.basePath;
 	}
 
-	private canConsumeForm(consumes: string[]): boolean {
+	private canConsumeForm(consumes: Array<string>): boolean {
 		const form = "multipart/form-data";
+
 		return consumes.includes(form);
 	}
 
 	/**
-	 * Retrieves information about a phone.
-	 * @param {number} phone - The phone number to retrieve information for.
-	 * @return {Promise<PhoneGetResponseDTO>} - A promise that resolves with the response data of type PhoneGetResponseDTO.
+	 * Retrieves phone information based on the given phone number.
+	 * @param {number} phone - The phone number for which to retrieve information.
+	 * @return {Promise<PhoneGetResponseDTO>} A Promise that resolves to the phone information as PhoneGetResponseDTO.
+	 */
+	public get(phone: number): Promise<PhoneGetResponseDTO>;
+	/**
+	 * Retrieves information for a phone number.
+	 *
+	 * @param {number} phone - The phone number for which information needs to be retrieved.
+	 * @return {Promise<any>} - A promise that resolves to the response data.
 	 * @throws {Error} - If the phone parameter is null or undefined.
 	 */
-	public async get(phone: number): Promise<PhoneGetResponseDTO> {
+	public async get(phone: number): Promise<any> {
 		if (phone === null || phone === undefined) {
 			throw new Error("Required parameter phone was null or undefined when calling phoneControllerGet.");
 		}
@@ -44,7 +56,7 @@ export class PhoneService {
 		queryParameters.append("phone", phone.toString());
 
 		const headers = { ...this.defaultHeaders };
-		const httpHeaderAccepts: string[] = ["application/json"];
+		const httpHeaderAccepts: Array<string> = ["application/json"];
 		const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
 
 		if (httpHeaderAcceptSelected !== undefined) {
@@ -59,6 +71,7 @@ export class PhoneService {
 			});
 
 			const response = await lastValueFrom(observable);
+
 			return response.data; // Assuming the response format is as expected.
 		} catch (error) {
 			// Implement error handling here

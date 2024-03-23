@@ -1,13 +1,17 @@
-import { lastValueFrom } from 'rxjs';
 import { HttpService } from "@nestjs/axios";
 import { Injectable, Optional } from "@nestjs/common";
+import { lastValueFrom } from "rxjs";
+
 import { Configuration } from "../configuration";
+
 import type { ProxyGetListResponseDTO } from "../model/proxy-get-list-response-dto.model";
 
 @Injectable()
 export class ProxyService {
 	protected basePath = "https://reaper.dapigate.com";
+
 	public configuration = new Configuration();
+
 	public defaultHeaders: Record<string, string> = {};
 
 	/**
@@ -24,8 +28,9 @@ export class ProxyService {
 		this.basePath = configuration?.basePath || this.basePath;
 	}
 
-	private canConsumeForm(consumes: string[]): boolean {
+	private canConsumeForm(consumes: Array<string>): boolean {
 		const form = "multipart/form-data";
+
 		return consumes.includes(form);
 	}
 
@@ -57,7 +62,7 @@ export class ProxyService {
 		}
 
 		const headers = { ...this.defaultHeaders };
-		const httpHeaderAccepts: string[] = ["application/json"];
+		const httpHeaderAccepts: Array<string> = ["application/json"];
 		const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
 
 		if (httpHeaderAcceptSelected !== undefined) {
@@ -72,6 +77,7 @@ export class ProxyService {
 			});
 
 			const response = await lastValueFrom(observable);
+
 			return response.data; // Assuming the response format is as expected.
 		} catch (error) {
 			// Implement error handling here

@@ -1,61 +1,59 @@
 {
-  "name": "@elsikora/dapigate-sdk-nestjs",
-  "version": "1.0.1",
-  "description": "NestJS SDK for DApiGate",
-  "author": "ElsiKora",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ElsiKora/DApiGate-SDK-NestJS.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ElsiKora/DApiGate-SDK-NestJS/issues"
-  },
-  "homepage": "https://github.com/ElsiKora/DApiGate-SDK-NestJS#readme",
-  "keywords": [
-    "sdk",
-    "openapi",
-    "client",
-    "rest",
-    "api",
-    "nestjs"
-  ],
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.json\" \".github/**/*.yml\"",
-    "lint": "eslint ./src --ext .ts,.tsx,.json,.yml --fix",
-    "patch": "npx changeset",
-    "patch:release": "npx changeset version",
-    "prebuild": "rimraf dist",
-    "release": "npm install && npm run build && changeset publish"
-  },
-  "dependencies": {
-    "@changesets/cli": "^2.27.1",
-    "@nestjs/axios": "^3.0.2",
-    "@nestjs/common": "^10.3.4",
-    "@nestjs/core": "^10.3.4",
-    "@nestjs/platform-express": "^10.3.4",
-    "reflect-metadata": "^0.2.1",
-    "rimraf": "^5.0.5",
-    "rxjs": "^7.8.1"
-  },
-  "devDependencies": {
-    "@nestjs/cli": "^10.3.2",
-    "@elsikora/eslint-config": "^2.0.6",
-    "@nestjs/testing": "~10.3.4",
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.11.30",
-    "prettier": "^3.2.5",
-    "typescript": "^5.4.3"
-  }
+	"author": "ElsiKora",
+	"bugs": {
+		"url": "https://github.com/ElsiKora/DApiGate-SDK-NestJS/issues"
+	},
+	"dependencies": {
+		"@changesets/cli": "^2.27.1",
+		"@nestjs/axios": "^3.0.2",
+		"@nestjs/common": "^10.3.4",
+		"@nestjs/core": "^10.3.4",
+		"@nestjs/platform-express": "^10.3.4",
+		"reflect-metadata": "^0.2.1",
+		"rimraf": "^5.0.5",
+		"rxjs": "^7.8.1"
+	},
+	"description": "NestJS SDK for DApiGate",
+	"devDependencies": {
+		"@elsikora/eslint-config": "^2.0.7",
+		"@nestjs/cli": "^10.3.2",
+		"@nestjs/testing": "~10.3.4",
+		"@types/express": "^4.17.21",
+		"@types/node": "^20.11.30",
+		"prettier": "^3.2.5",
+		"typescript": "^5.4.3"
+	},
+	"files": [
+		"dist"
+	],
+	"homepage": "https://github.com/ElsiKora/DApiGate-SDK-NestJS#readme",
+	"keywords": [
+		"sdk",
+		"openapi",
+		"client",
+		"rest",
+		"api",
+		"nestjs"
+	],
+	"license": "MIT",
+	"name": "@elsikora/dapigate-sdk-nestjs",
+	"version": "1.0.1",
+	"main": "dist/index.js",
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/ElsiKora/DApiGate-SDK-NestJS.git"
+	},
+	"scripts": {
+		"build": "nest build",
+		"format": "prettier --write \"src/**/*.ts\" \"src/**/*.json\" \".github/**/*.yml\"",
+		"lint": "eslint ./src --ext .ts,.tsx,.json,.yml --fix && eslint ./*.json --fix",
+		"patch": "npx changeset",
+		"patch:release": "npx changeset version",
+		"prebuild": "rimraf dist",
+		"release": "npm install && npm run build && changeset publish"
+	},
+	"types": "dist/index.d.ts"
 }
